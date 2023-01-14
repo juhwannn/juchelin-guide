@@ -73,13 +73,6 @@ const options = {
         expressServer.use(cookieParser(process.env.COOKIEPARSER_KEY));
         expressServer.use(RouterUtil.extendReqRes);
         expressServer.use(SignedCookieLogic.extendReqRes);
-        expressServer.use(session({
-            key: "session_cookie_name",
-            secret: "session_cookie_secret",
-            store: sessionStore,
-            resave: false,
-            saveUninitialized: false
-        }));
 
         expressServer.use('/api', require('./serverSides/routes/api'));
         // TODO: api 선언과 네트워크 부분 분리
