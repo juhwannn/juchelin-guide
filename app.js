@@ -47,14 +47,6 @@ const nextJsRequestHandler = nextJs.getRequestHandler();
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
-const options = {
-    host: "192.168.0.220",
-    port: 3306,
-    user: "itlog",
-    password: "1234",
-    database: "prosafe"
-};
-
 (async () => {
     try {
         if (nextJsEnabled) await nextJs.prepare();
