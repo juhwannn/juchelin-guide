@@ -10,3 +10,13 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=1234!
       - MYSQL_DATABASE=juchelin-guide
+  node-app:
+    container_name: juchelin-guide-app
+    restart: unless-stopped
+    depends_on:
+      - db-mysql
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    ports:
+      - "3000:3000"
