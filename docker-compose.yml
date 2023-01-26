@@ -13,6 +13,11 @@ services:
   node-app:
     container_name: juchelin-guide-app
     restart: unless-stopped
+    # Next.js 에서 hot reloading 을 위한 볼륨 지정
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
     depends_on:
       - db-mysql
     build:
