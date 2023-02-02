@@ -3,6 +3,7 @@ services:
   db-mysql:
     container_name: juchelin-guide-db
     restart: unless-stopped
+    platform: linux/amd64
     build:
       context: serverSides/docker/mysql
     ports:
@@ -20,6 +21,7 @@ services:
       - /usr/src/app/.next
     depends_on:
       - db-mysql
+    platform: linux/amd64
     build:
       dockerfile: Dockerfile
       context: ./
