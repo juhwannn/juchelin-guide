@@ -9,6 +9,7 @@ module.exports = {
             res.cookieSetSigned(cookeKeyUserId, user.user_id);
             res.cookieSetSigned(cookeKeyUser, JSON.stringify(user));
         };
+        res.signedCookieAccessTokenSet = jwt => res.cookieSetSigned(cookeKeyAccessToken, jwt);
         req.getUserSeq = () => req.signedCookies[cookeKeyUserId];
         req.getUser = () => {
             try {
