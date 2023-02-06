@@ -27,6 +27,8 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+.env.local
 
 # vercel
 .vercel
@@ -35,5 +37,14 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# .idea
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# idea
 .idea
