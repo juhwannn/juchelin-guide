@@ -25,7 +25,7 @@ router.post('/join', wrapTryCatch(async (req, res) => {
 router.post('/login', wrapTryCatch(async (req, res) => {
     const {id, password} = req.getObjectRequired('id', 'password');
     const idReplaced = id.replace(/\s/g, '');
-    // const userFromDb = await authLogic.login(idReplaced, password);
+    const userFromDb = await authLogic.login(idReplaced, password);
     const userFromDb = await selectUserAll();
     console.log("userFromDb: ", userFromDb);
     if(!userFromDb)
