@@ -1,5 +1,4 @@
 import Layout from "../pageComponents/layout/Layout";
-import styled from "styled-components";
 import ContextUser from "../pageComponents/ContextUser";
 import React, {useEffect, useState} from "react";
 import AuthLayout from "../pageComponents/layout/AuthLayout";
