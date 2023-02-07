@@ -1,6 +1,6 @@
 version: "3"
 services:
-  db-mysql:
+  db:
     container_name: juchelin-guide-db
     restart: unless-stopped
     platform: linux/amd64
@@ -11,16 +11,15 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=1234!
       - MYSQL_DATABASE=juchelin-guide
-  node-app:
+  app:
     container_name: juchelin-guide-app
     restart: unless-stopped
-    # Next.js 에서 hot reloading 을 위한 볼륨 지정
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules
       - /usr/src/app/.next
     depends_on:
-      - db-mysql
+      - db
     platform: linux/amd64
     build:
       dockerfile: Dockerfile

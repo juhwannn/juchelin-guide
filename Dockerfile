@@ -2,12 +2,12 @@ FROM node:16.13.2-alpine
 
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app
-COPY package-lock.json /usr/src/app
+COPY package.json ./
+COPY package-lock.json ./
 
 RUN npm ci
 
-COPY . /usr/src/app
+COPY ./ ./
 
 CMD ["npm", "run", "dev"]
 
