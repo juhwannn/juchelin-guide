@@ -32,7 +32,12 @@ module.exports = {
 
             return val;
         };
-
+        res.cookieSetSigned = (k, v) => {
+            if (req.protocol === 'https')
+                res.cookie(k, v, {signed: true, httpOnly: true, sameSite: 'strict', secure: true});
+            else
+                res.cookie(k, v, {signed: true, httpOnly: true, sameSite: 'strict'});
+        };
         req.referer = () => req.header('referer');
         req.rootUrl = () => `${req.protocol}://${req.header('host')}`;
         req.fullUrl = () => `${req.protocol}://${req.header('host')}${req.originalUrl}`;
