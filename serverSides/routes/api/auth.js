@@ -2,6 +2,7 @@ console.log(`${__filename}:1`);
 
 const express = require('express');
 const jwt = require("jsonwebtoken-promisified");
+const {query} = require("../../repositories/mysqlPool");
 const {expirationPeriodInSec} = require("../../logics/JwtLogic");
 const {selectUserAll} = require("../../repositories/auth");
 const {wrapTryCatch} = require("../../utils/RouterUtil");
@@ -25,9 +26,10 @@ router.post('/join', wrapTryCatch(async (req, res) => {
 router.post('/login', wrapTryCatch(async (req, res) => {
     const {id, password} = req.getObjectRequired('id', 'password');
     const idReplaced = id.replace(/\s/g, '');
-    const userFromDb = await authLogic.login(idReplaced, password);
+    // const userFromDb = await authLogic.login(idReplaced, password);
     const userFromDb = await selectUserAll();
     console.log("userFromDb: ", userFromDb);
+    console.log("a");
     if(!userFromDb)
         throw new Error('로그인 정보를 확인해 주세요.');
 

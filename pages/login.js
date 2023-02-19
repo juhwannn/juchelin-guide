@@ -33,15 +33,13 @@ export default function Home() {
 
     return (
         <Root>
-            <form onSubmit={onSubmit}>
-                아이디:
-                <input type="text" value={id} onChange={e => setId(e.target.value)}/>
+            아이디:
+            <input type="text" value={id} onChange={e => setId(e.target.value)}/>
 
-                비밀번호:
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
+            비밀번호:
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
 
-                <button onClick={onSubmit}>로그인</button>
-            </form>
+            <button onClick={onSubmit}>로그인</button>
         </Root>
     )
 }
